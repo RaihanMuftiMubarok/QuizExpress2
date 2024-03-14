@@ -4,7 +4,11 @@ class Model_Kapal {
 
     static async getAll() {
         return new Promise((resolve, reject) =>{
-            connection.query('SELECT kapal.*, pemilik.nama_pemilik AS nama_pemilik, dpi.nama_dpi AS nama_dpi, alat_tangkap.nama_alat_tangkap AS nama_alat FROM kapal JOIN pemilik ON kapal.id_pemilik = pemilik.id_pemilik JOIN dpi ON kapal.id_dpi = dpi.id_dpi JOIN alat_tangkap ON kapal.id_alat_tangkap = alat_tangkap.id_alat_tangkap', (err, rows) => {
+            connection.query(`SELECT a.*, b.nama_pemilik, c.nama_dpi, d.nama_alat_tangkap
+            FROM kapal as a
+            JOIN pemilik as b ON b.id_pemilik = a.id_pemilik
+            JOIN dpi as c ON c.id_dpi = a.id_dpi
+            JOIN alat_tangkap as d ON d.id_alat_tangkap = a.id_alat_tangkap`, (err, rows) => {
                 if (err) {
                     reject(err);
                 } else {
