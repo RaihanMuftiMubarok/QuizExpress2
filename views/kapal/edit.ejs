@@ -11,7 +11,7 @@
     
         <div class="mb-3 px-5">
             <label for="nama_kapal" class="form-label">Nama Kapal</label>
-            <input type="text" class="form-control" name="nama_kapal" value="<%= nama_instansi %>" required />
+            <input type="text" class="form-control" name="nama_kapal" value="<%= nama_kapal %>" required />
           </div>
           <div class="mb-3 px-5">
             <label for="id_pemilik" class="form-label">Nama Pemilik</label>
@@ -42,7 +42,7 @@
               <% for(var i=0; i < data2.length; i++){ %>
               <option value="<%= data2[i].id_dpi %>">
                 <%= data2[i].nama_dpi %>
-              </option>
+              </option>l
               <% } %>
             </select>
           </div>
