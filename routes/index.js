@@ -38,8 +38,17 @@ router.post('/log', async (req, res) => {
       let cek = await bcrypt.compare(password, enkripsi);
       if (cek) {
         req.session.userId = Data[0].id_users;
-        req.flash('success', 'Berhasil login!');
-        res.redirect('/users');
+        //menambahkan kondisi pengecekan level pada user 
+        if(Data[0].level_users == 1){
+          req.flash('success', 'berhasil login');
+          res.redirect('/superusers');
+        }else if(Data[0].level_users == 2){
+          req.flash('success', 'Berhasil login!');
+          res.redirect('/users');
+        }else{
+          res.redirect('login');
+        }
+        // ahir kondisi
       } else {
         req.flash('error', 'email atau password salah!');
         res.redirect('/login');

@@ -8,10 +8,16 @@ router.get("/", async function (req, res, next) {
     let id = req.session.userId;
     let Data = await Model_User.getId(id);
     if (Data.length > 0) {
-      res.render("users/index", {
-        title: "Users Home",
-        email: Data[0].email,
-      });
+      //menhambahkan kondisi pengecekan level
+      if (Data[0].level_users != 2) {
+        res.redirect("/logout");
+      } else {
+        res.render("users/index", {
+          title: "Users Home",
+          email: Data[0].email
+        });
+      }
+      //akhir kondisi
     } else {
       res.status(401).json({ error: "user tidak ada" });
     }
