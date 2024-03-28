@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,8 +13,12 @@
     />
   </head>
   <body>
-    <form action="/kapal/store" method="POST">
-      <div class="container px-5 py-4 bg-success-subtle">
+    <form action="/kapal/store" method="POST" enctype="multipart/form-data">
+      <div class="container-fluid px-5 py-4 bg-primary-subtle">
+        <div class="mb-3 px-5">
+          <label for="foto_kapal" class="form-label">Foto Kapal</label>
+          <input type="file" class="form-control" name="foto_kapal" required />
+        </div>
         <div class="mb-3 px-5">
           <label for="nama_kapal" class="form-label">Nama Kapal</label>
           <input type="text" class="form-control" name="nama_kapal" required />

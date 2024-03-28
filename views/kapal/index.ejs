@@ -35,6 +35,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Foto Kapal</th>
                         <th scope="col">Kapal</th>
                         <th scope="col">Pemilik</th>
                         <th scope="col">DPI</th>
@@ -47,6 +48,7 @@
                     <% for(var i = 0; i < data.length; i++){ %>
                         <tr>
                             <th scope="row"><%= (i+1) %></th>
+                            <td><img src="/images/upload/<%= data[i].foto_kapal %>" height="100"></td>
                             <td><%= data[i].nama_kapal %></td>
                             <td><%= data[i].nama_pemilik %></td>
                             <td><%= data[i].nama_dpi %></td>
